@@ -1,4 +1,4 @@
- <div class="container" style="background-color:  #eefcf8 ">
+ <div class="container-fluid" style="background-color:  #eefcf8 ">
 
  <div class="header-part" style="height: 150px">
   <img src="{{ asset('upload/logoimage/')}}/{{ $logo->image }}" style="width: 100%;height: 150px">

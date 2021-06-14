@@ -9,6 +9,7 @@ use App\Model\Slider;
 use App\Model\Principal;
 use App\Model\History;
 use App\Model\Post;
+use Carbon\Carbon;
 class FrontendController extends Controller
 {
     public function index(){
@@ -21,7 +22,9 @@ class FrontendController extends Controller
     	$data['argents'] = Post::where('status',1)->where('category_id',1)->limit(1)->get();
 
     	$data['recents'] = Post::where('status',1)->orderBy('id','DESC')->limit(6)->get();
-    	$data['adexrs'] = Post::where('status',1)->whereIn('category_id',['3','4','5'])->orderBy('id','DESC')->limit(6)->get();
+    	$data['admissions'] = Post::where('status',1)->where('category_id',4)->orderBy('id','DESC')->limit(6)->get();
+        $data['exams'] = Post::where('status',1)->where('category_id',3)->orderBy('id','DESC')->limit(6)->get();
+        $data['results'] = Post::where('status',1)->where('category_id',5)->orderBy('id','DESC')->limit(6)->get();
     	return view('frontend.layouts.home',$data);
     }
 
@@ -31,6 +34,22 @@ class FrontendController extends Controller
         $data['logo'] = Logo::first();
         return view('frontend.single_page.post-details',$data);
     }
+
+
+    public function allrecent(){
+       
+        $data['posts'] =Post::latest()->paginate(10);
+        $data['logo'] = Logo::first();
+        return view('frontend.single_page.all-recent-post',$data);
+    }
+
+     public function alladmission(){
+       
+        $data['posts'] =Post::where('category_id',4)->latest()->paginate(10);
+        $data['logo'] = Logo::first();
+        return view('frontend.single_page.all-admission-post',$data);
+    }
+
 
 
 

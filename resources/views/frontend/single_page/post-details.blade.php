@@ -3,14 +3,15 @@
 @include('frontend.layouts.header')
 
 <div class="row mt-5 mb-5">
-	<div class="col-md-10 offset-md-1">
-	 <div class="panel"style="border:2px solid lightgreen">
-	<div class="panel-header" style="background: lightgreen">
-		<h4 class=" p-3">{{ $post_page->post_title }}  <button class="float-right btn btn-warning">
+	<div class="col-md-12">
+	 <div class="panel"style="">
+	<div class="panel-header text-white" >
+		<img src="{{ asset('upload') }}/blogo.jpg" width="100%">
+		<h4 style="margin-top:-75px" class=" p-3">Post Details  <button class="float-right btn btn-warning">
 			{{ date('d-M-Y',strtotime($post_page->post_date ))}}</button>
 		</h4>
 	</div>
-	<div class="panel-body">
+	<div class="panel-body mt-5" >
 		<div class="row">
 			<div class="col-md-4">
 				<div class="p-5">
@@ -23,7 +24,7 @@
 
 			<div class="col-md-8">
 				<h3>{{ $post_page->post_title }}</h3>
-				<h6 style="color: green"> Post Date : {{ date('d-M-Y',strtotime($post_page->post_date ))}}</h6>
+				<h6 style="color: green"> Post Date : {{ $post_page->created_at->diffForHumans() }}</h6>
 
 				<div class="mt-5">
 					<p>{{ $post_page->post_details }}</p>

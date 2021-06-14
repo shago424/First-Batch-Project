@@ -65,86 +65,7 @@ $count =0;
 
 <!-- ----------Left Sidebar Start------------------- -->
 
-  <div class="col-sm-3" style="" >
-
-     <div class="panel panel-primary" id="result_panel" style="margin-top: 0;background-color:  #eef2f7 ;border: 1px solid gray;">
-        <div class="panel-heading bg-warning"style=" 
-;color: black"><h5 style="padding: 15px" class="panel-title">Recent Notice  </h5>
-              </div>
-             <div class="panel-body" style="background-color:  #eef2f7 ;height: 100px">
-
-                <ul style="list-style: none;" >
-                 <marquee direction = "up" scrollamount="3px" onmouseover="this.stop()" onmouseout="this.start()">  
-                 @foreach($recents as $recent)      
-                <li ><a style="text-decoration: none;" href="{{ route('post.details',$recent->id) }}"><i class="fa fa-angle-right"></i>  {{ $recent->post_title }}</a></li>
-                @endforeach
-            </ul>
-          </marquee>
-          </div>
-
-          <div class="panel-footer"style=" 
-;color: black;border-radius: none"> <a class="btn btn-primary"  href="" style="padding: 7px;padding-bottom: 7px;width: 100%;" class="panel-title">See All Notice </a>
-              </div>
-          </div>
-
-
-            <div class="panel panel-primary mt-2" id="result_panel" style="margin-top: 0;background-color:  #eef2f7 ;border: 1px solid gray;">
-        <div class="panel-heading bg-warning"style=" 
-;color: black"><h5 style="padding: 15px" class="panel-title text-center">Admission Result Exam Notice  </h5>
-              </div>
-             <div class="panel-body" style="background-color:  #eef2f7 ;height: 100px">
-
-                <ul style="list-style: none;" >
-                 <marquee direction = "up" scrollamount="3px" onmouseover="this.stop()" onmouseout="this.start()"> 
-                 @foreach($adexrs as $aer)       
-                <li ><a style="text-decoration: none;" href="{{ route('post.details',$aer->id) }}"><i class="fa fa-angle-right"></i>  {{ $aer->post_title }}</a></li> 
-                @endforeach    
-                  
-                            
-            </ul>
-          </marquee>
-          </div>
-
-          <div class="panel-footer"style=" 
-;color: black;border-radius: none"> <a class="btn btn-primary"  href="" style="padding: 7px;padding-bottom: 7px;width: 100%;" class="panel-title">See All Notice </a>
-              </div>
-          </div>
-   
-
-
-<div class="card mt-2" style="max-width: 100%;margin-left: 0">
-  <div class="card-header bg-danger" class="notice" style="color: white">
-    Notice Panel
-  </div>
-  <a style="width: 100%" class="btn btn-success text-left" href="">Recent Notice</a>
-  <a style="width: 100%;margin-top: 3px" class="btn btn-success text-left" href="">All Notice</a>
-  <a style="width: 100%;margin-top: 3px" class="btn btn-success text-left" href="">Admission Notice</a>
-  <a style="width: 100%;margin-top: 3px" class="btn btn-success text-left" href="">Exam Notice</a>
-  <a style="width: 100%;margin-top: 3px" class="btn btn-success text-left" href="">Result Notice</a>
- 
-</div>
-
-<div class="card mt-2" style="max-width: 100%;margin-left: 0">
-  <div class="card-header bg-primary" class="notice" style="color: white">
-    Gallery
-  </div>
-  <ul class="list-group list-group-flush">
-    <li style="background-color: red;" class="list-group-item"><a style="text-decoration: none;color: white" href="">Photo Gallery</a></li>
-   <li style="background-color: red;margin-top:5px" class="list-group-item"><a style="text-decoration: none;color: white" href="">Event Gallery</a></li>
-   <li style="background-color: red;margin-top:5px" class="list-group-item"><a style="text-decoration: none;color: white" href="">Video Gallery</a></li>
-  
-
-  </ul>
-</div>
-
-
-
-
-
-
-
-
-  </div>
+  @include('frontend.layouts.left-sidebar')
 
   <!-- ----------Left Sidebar End------------------- -->
 
@@ -185,38 +106,8 @@ $count =0;
 
 <!-- ----------Right Sidebar Start------------------- -->
 
-   <div class="col-sm-3" style="">
-   @foreach($principals as $principal)
-   <div class="card" style="width:100%;height: 330px;border-radius: none;;">
-  <img class="card-img-top pt-2" src="{{ asset('upload/principalimage/')}}/{{ $principal->image }} " alt="Card image" height="180px">
-  <div class="card-body" style="background-color:  #fbe6e3 ">
-    <h4 class="card-title">{{ $principal->degi }}</h4>
-    <p style="padding: 0">{{ $principal->name }}</p>
-    <a href="#" class="btn btn-primary">See Profile</a>
-  </div>
-</div>
-@endforeach
-
-
-
-<div class="card mt-2" style="max-width: 100%;margin-left: 0">
-  <div class="card-header bg-success" class="notice" style="color: white">
-   Emergency Website Link
-  </div>
-  <a style="width: 100%" class="btn btn-warning text-left" href="">SHED</a>
-  <a style="width: 100%;margin-top: 3px" class="btn btn-warning text-left" href="">DSHE</a>
-  <a style="width: 100%;margin-top: 3px" class="btn btn-warning text-left" href="">NU</a>
-  <a style="width: 100%;margin-top: 3px" class="btn btn-warning text-left" href="">Rajshahi Board</a>
-  <a style="width: 100%;margin-top: 3px" class="btn btn-warning text-left" href="">EMIS Cell</a>
- 
-</div>
-
-<div class="card mt-2">
-  <div class="fb-page" data-href="https://www.facebook.com/SsbLearningInstitute" data-tabs="timeline" data-width="" data-height="140px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/SsbLearningInstitute" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/SsbLearningInstitute">SSB Learning Institute - এসএসবি লার্নিং ইন্সটিটিউট</a></blockquote></div>
-  
-</div>
-
-  </div>
+@include('frontend.layouts.right-sidebar')
+{{-- Right Sidebar End --}}
 
 
 </div>
